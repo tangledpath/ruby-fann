@@ -1,6 +1,4 @@
 require 'test/unit'
-require 'rubygems'
-require 'ruby_fann/neural_network'
 
 class RubyFannFunctionalTest < Test::Unit::TestCase
   XOR_INPUT_DATA =  [[-1, -1], [-1, 1], [1, -1], [1, 1]]

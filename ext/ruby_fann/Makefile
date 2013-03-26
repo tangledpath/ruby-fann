@@ -115,9 +115,9 @@ extout_prefix =
 target_prefix = 
 LOCAL_LIBS = 
 LIBS =   -lpthread -ldl -lobjc 
-SRCS = neural_network.c doublefann.c
-OBJS = neural_network.o doublefann.o
-TARGET = neural_network
+SRCS = ruby_fann.c doublefann.c
+OBJS = ruby_fann.o doublefann.o
+TARGET = ruby_fann
 DLLIB = $(TARGET).bundle
 EXTSTATIC = 
 STATIC_LIB = 
@@ -165,7 +165,7 @@ install-rb-default: pre-install-rb-default
 pre-install-rb: Makefile
 pre-install-rb-default: Makefile
 pre-install-rb-default:
-	$(ECHO) installing default neural_network libraries
+	$(ECHO) installing default ruby_fann libraries
 $(RUBYARCHDIR):
 	$(Q) $(MAKEDIRS) $@
 

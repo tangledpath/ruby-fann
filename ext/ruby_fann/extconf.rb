@@ -7,6 +7,6 @@ require 'mkmf'
 #find_library("doublefann", "fann_create_standard", "/usr/local/lib")
 
 #dir_config('fann', '.')
-$objs=["neural_network.o", "doublefann.o"]
+$objs=["ruby_fann.o", "doublefann.o"]
 have_header("doublefann.h")
-create_makefile("neural_network")
+create_makefile("ruby_fann")

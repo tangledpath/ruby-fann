@@ -11,7 +11,7 @@ Gem::Specification.new do |gem|
   gem.description   = %q{Bindings to use FANN from within ruby/rails environment}
   gem.summary       = %q{Bindings to use FANN from within ruby/rails environment.  Fann is a is a free open source neural network library, which implements multilayer artificial neural networks with support for both fully connected and sparsely connected networks.  It is easy to use, versatile, well documented, and fast.  RubyFann makes working with neural networks a breeze using ruby, with the added benefit that most of the heavy lifting is done natively.}
   gem.homepage      = "http://github.com/tangledpath/ruby-fann"
-
+  gem.has_rdoc      = true
   gem.files         =  Dir.glob('lib/**/*.rb') + Dir.glob('ext/**/*.{c,h,rb}')
   gem.extensions    = ['ext/ruby_fann/extconf.rb']
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

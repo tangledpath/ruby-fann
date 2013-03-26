@@ -1,7 +1,4 @@
 require 'test/unit'
-require 'rubygems'
-require 'ruby_fann/neural_network'
-
 class MyShortcut < RubyFann::Shortcut
   def initialize
     super(:num_inputs=>5, :num_outputs=>1)    
@@ -163,7 +160,6 @@ class RubyFannTest < Test::Unit::TestCase
   
   def test_train_bug
     require 'rubygems'
-    require 'ruby_fann/neural_network'
     training_data = RubyFann::TrainData.new(
       :inputs=>[[0.3, 0.4, 0.5], [0.1, 0.2, 0.3]],
       :desired_outputs=>[[0.7], [0.8]])

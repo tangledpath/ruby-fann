@@ -21,12 +21,20 @@ Or install it yourself as:
 ### Example training & subsequent execution:
   
 ```ruby
+  require 'ruby-fann'
   train = RubyFann::TrainData.new(:inputs=>[[0.3, 0.4, 0.5], [0.1, 0.2, 0.3]], :desired_outputs=>[[0.7], [0.8]])
   fann = RubyFann::Standard.new(:num_inputs=>5, :hidden_neurons=>[2, 8, 4, 3, 4], :num_outputs=>1)
   fann.train_on_data(train, 1000, 10, 0.1)
-  outputs = fann.run([3.0, 2.0, 3.0])    
+  outputs = fann.run([0.3, 0.2, 0.4])    
 ```
 
+### Save trained NN to file and use it later (continued from above)
+
+```ruby
+  train.save('verify.train')
+  train = RubyFann::TrainData.new(:filename=>'verify.train')
+  outputs = fann.run([0.1, 0.9, 0.4])    
+```
   
 ### Now implements a callback method
 

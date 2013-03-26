@@ -1503,7 +1503,7 @@ static VALUE nn_save(VALUE self, VALUE filename)
 }
 
 /** Initializes class under RubyFann module/namespace. */
-void Init_neural_network ()
+void Init_ruby_fann ()
 {
     // RubyFann module/namespace:
     m_rb_fann_module = rb_define_module ("RubyFann");
