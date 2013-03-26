@@ -57,7 +57,7 @@ class RubyFannTest < Test::Unit::TestCase
   
   def test_run
     fann = RubyFann::Standard.new(:num_inputs=>4, :hidden_neurons=>[3, 4, 3, 4], :num_outputs=>1)
-    outputs = fann.run([3.0, 2.0, 3.0, 4.0])
+    outputs = fann.run([0.3, 0.2, 0.4, 0.7])
     assert_equal(1, outputs.length)
   end
   
@@ -144,7 +144,7 @@ class RubyFannTest < Test::Unit::TestCase
     train = RubyFann::TrainData.new(:inputs=>[[0.3, 0.4, 0.5], [0.1, 0.2, 0.3]], :desired_outputs=>[[0.7], [0.8]])
     fann = RubyFann::Standard.new(:num_inputs=>3, :hidden_neurons=>[2, 8, 4, 3, 4], :num_outputs=>1)
     fann.train_on_data(train, 1000, 10, 0.1)
-    outputs = fann.run([3.0, 2.0, 3.0])    
+    outputs = fann.run([0.3, 0.2, 0.4])    
     puts "OUTPUT FROM RUN WAS #{outputs.inspect}"
   end
   
