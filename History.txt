@@ -1,0 +1,79 @@
+== 1.2 2013-03-26
+* Move to github.  Dig out hoe.
+
+== 1.1.3 2010-03-08
+* 1 major enhancement - 
+  * ruby 1.9 compatibility:
+
+== 1.0.3 2009-12-24
+* 1 minor bug fix:
+  * Fix segfaulting training in irb
+
+== 1.0.2 2009-12-02
+
+* 1 minor enhancement:
+  * Added missing file to manifest
+
+== 1.0.1 2009-12-02
+
+* 1 minor enhancement:
+  * Remove some extra source files
+
+== 1.0.0 2009-12-01
+
+* 1 major enhancement:
+  * Can build/install & execute without first installing & building FANN.
+
+== 0.7.10 2008-11-24
+
+* 1 minor enhancement:
+  * Remove several printf statements that were showing up in certain production environment's error logs.
+
+== 0.7.9 2008-08-15
+
+* 1 major bug fix:
+  * Fix set_activation_function for correct # of args (2 instead of 1)
+* 1 minor enhancement
+  * Provide support for fann_get_activation_function
+
+== 0.7.8 2007-03-25
+
+* 1 major enhancement:
+  * training_callback(args) will be automatically called during training if implemented on subclass.  See README for details.
+
+== 0.7.7 2007-01-23
+
+* 1 minor enhancement:
+  * Cull bias neuron(s) from get_neurons function
+
+== 0.7.6 2007-01-14
+
+* 1 minor bug fix:
+  * Exception (instead of pukage) if zero-length array given on training data
+
+== 0.7.5 2007-12-21
+
+* 3 minor enhancements:
+  * Fixed rdoc to use actual parameter names
+  * Minor code cleanup & symbol fixage
+  * Nicer error messages for windows users
+
+== 0.7.4 2007-12-19
+
+* 1 minor enhancement:
+  * Nicer message if FANN not installed
+
+== 0.7.3 2007-12-19
+
+* 1 minor enhancement:
+  * Directives to build native extensions
+
+== 0.7.2 2007-12-18
+
+* 1 major enhancement:
+  * Include docs
+
+== 0.0.1 2007-12-18
+
+* 1 major enhancement:
+  * Initial release

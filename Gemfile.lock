@@ -1,0 +1,14 @@
+PATH
+  remote: .
+  specs:
+    ruby-fann (1.2.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ruby-fann!
