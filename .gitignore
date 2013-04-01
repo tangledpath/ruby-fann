@@ -1,6 +1,7 @@
 *.gem
 *.rbc
 *.bundle
+.DS_Store
 .config
 coverage
 InstalledFiles

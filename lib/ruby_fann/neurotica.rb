@@ -5,7 +5,7 @@ module RubyFann
   # Generates directed graph from a RubyFann neural network.
   # Requires the GraphViz gem 0.8.0 (or higher) to be installed, 
   # as well as graphviz proper 2.14.1 (or higher).
-  class Neurotica
+  class Neurotica # :nodoc:
     attr_accessor :connector_colors
     attr_accessor :input_layer_color
     attr_accessor :hidden_layer_colors

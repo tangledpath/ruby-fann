@@ -1,8 +1,7 @@
 require "bundler/gem_tasks"
 
 require 'rake/testtask'
-
-require 'rake/testtask'
+require 'rdoc/task'
 require 'rake/clean'
 
 NAME = 'ruby_fann'
@@ -40,3 +39,8 @@ end
 
 desc "Run tests"
 task :default => :test
+
+Rake::RDocTask.new do |rd|
+  rd.main = "README.md"
+  rd.rdoc_files.include("README.md", "ext/**/*.c")
+end
