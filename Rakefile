@@ -42,5 +42,5 @@ task :default => :test
 
 Rake::RDocTask.new do |rd|
   rd.main = "README.md"
-  rd.rdoc_files.include("README.md", "ext/**/*.c")
+  rd.rdoc_files.include("README.md", "lib/**/*.rb", "ext/**/*.c")
 end
