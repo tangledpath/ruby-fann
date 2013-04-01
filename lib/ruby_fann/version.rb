@@ -1,8 +1,8 @@
-module RubyFann #:nodoc:
-  module VERSION #:nodoc:
+module RubyFann
+  module VERSION
     MAJOR = 1
     MINOR = 2
-    TINY  = 2
+    TINY  = 3
 
     STRING = [MAJOR, MINOR, TINY].join('.')
   end
