@@ -1,0 +1,14 @@
+Sun, 05 May 2013 18:53:46 -0500
+README.md	Sun, 05 May 2013 18:53:10 -0500
+lib/ruby-fann.rb	Tue, 26 Mar 2013 15:13:37 -0500
+lib/ruby_fann.rb	Mon, 01 Apr 2013 11:56:41 -0500
+lib/ruby_fann/neurotica.rb	Mon, 01 Apr 2013 16:20:10 -0500
+lib/ruby_fann/version.rb	Mon, 01 Apr 2013 13:22:44 -0500
+ext/ruby_fann/doublefann.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann_cascade.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann_error.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann_io.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann_train.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/fann_train_data.c	Tue, 26 Mar 2013 14:06:04 -0500
+ext/ruby_fann/ruby_fann.c	Mon, 01 Apr 2013 16:14:59 -0500

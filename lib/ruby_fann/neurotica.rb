@@ -48,9 +48,12 @@ module RubyFann
         fillcolor = "transparent"  # : "khaki3"
         layer = neuron[:layer]
         fillcolor = case layer
-          when 0: @input_layer_color
-          when max_layer: @output_layer_color
-          else; @hidden_layer_colors[(layer-1) % @hidden_layer_colors.length]
+          when 0
+            @input_layer_color
+          when max_layer
+            @output_layer_color
+          else
+            @hidden_layer_colors[(layer-1) % @hidden_layer_colors.length]
         end
         
         #puts "adding neuron with #{neuron[:value]}"
