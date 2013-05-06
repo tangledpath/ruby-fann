@@ -18,6 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
+First, Go here & read about FANN. You don't need to install it before using the gem, but understanding FANN will help you understand what you can do with the ruby-fann gem:
+http://leenissen.dk/fann/
+
 ### Example training & subsequent execution:
   
 ```ruby
@@ -46,7 +49,7 @@ Or install it yourself as:
   saved_nn.run([0.3, 0.2, 0.4])  
 ```
   
-### Now implements a callback method
+### Custom training using a callback method
 
 This callback function can be called during training when using train_on_data, train_on_file or cascadetrain_on_data.
 
@@ -64,6 +67,13 @@ class MyFann < RubyFann::Standard
   end
 end
 ```
+### A sample project using Ruby Fann to play tic-tac-toe
+https://github.com/bigohstudios/tictactoe
+
+## Documentation
+http://ruby-fann.rubyforge.org/
+
+
 
 ## Contributing
 

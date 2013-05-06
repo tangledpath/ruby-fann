@@ -41,6 +41,19 @@ desc "Run tests"
 task :default => :test
 
 Rake::RDocTask.new do |rd|
-  rd.main = "README.md"
-  rd.rdoc_files.include("README.md", "lib/**/*.rb", "ext/**/*.c")
+  rd.main = "README.txt"
+  rd.rdoc_files.include("README.txt", "lib/**/*.rb", "ext/**/*.c")
+  rd.title = "Ruby FANN Gem documentation"
 end
+
+rubyforge_username = "stevenmiers"
+rubyforge_project = "ruby-fann"
+desc 'Upload rdoc files to rubyforge'
+task :upload_docs do
+  host = "#{rubyforge_username}@rubyforge.org"
+  remote_dir = "/var/www/gforge-projects/#{rubyforge_project}/"
+  local_dir = 'html'
+  sh %{scp -r #{local_dir}/ #{host}:#{remote_dir}}
+  #sh %{rsync -aCv #{local_dir}/ #{host}:#{remote_dir}}
+end
+
