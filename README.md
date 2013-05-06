@@ -1,6 +1,6 @@
-# Ruby::Fann
+# RubyFann
 
-Bindings to use FANN from within ruby/rails environment.  Fann is a is a free open source neural network library, which implements multilayer artificial neural networks with support for both fully connected and sparsely connected networks.  It is easy to use, versatile, well documented, and fast.  RubyFann makes working with neural networks a breeze using ruby, with the added benefit that most of the heavy lifting is done natively.
+RubyFann, or "ruby-fann" is a ruby gem that binds to FANN (Fast Artificial Neural Network) from within a ruby/rails environment.  FANN is a is a free open source neural network library, which implements multilayer artificial neural networks with support for both fully connected and sparsely connected networks.  It is easy to use, versatile, well documented, and fast.  RubyFann makes working with neural networks a breeze using ruby, with the added benefit that most of the heavy lifting is done natively.
 
 ## Installation
 
@@ -20,6 +20,9 @@ Or install it yourself as:
 
 First, Go here & read about FANN. You don't need to install it before using the gem, but understanding FANN will help you understand what you can do with the ruby-fann gem:
 http://leenissen.dk/fann/
+
+ruby-fann RDocs:
+http://ruby-fann.rubyforge.org/
 
 ### Example training & subsequent execution:
   
@@ -67,12 +70,8 @@ class MyFann < RubyFann::Standard
   end
 end
 ```
-### A sample project using Ruby Fann to play tic-tac-toe
+### A sample project using RubyFann to play tic-tac-toe
 https://github.com/bigohstudios/tictactoe
-
-## Documentation
-http://ruby-fann.rubyforge.org/
-
 
 
 ## Contributing
