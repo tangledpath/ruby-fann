@@ -18,3 +18,7 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+*.net
+
+*.log
