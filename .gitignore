@@ -18,3 +18,5 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+ext/ruby_fann/Makefile
