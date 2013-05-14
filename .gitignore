@@ -1,6 +1,8 @@
 *.gem
 *.rbc
 *.bundle
+*.net
+*.log
 .DS_Store
 .config
 coverage
@@ -18,3 +20,5 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+ext/ruby-fann/Makefile
