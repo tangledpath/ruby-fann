@@ -1111,7 +1111,38 @@ static VALUE init_weights(VALUE self, VALUE train_data)
     return self;    
 }
 
+/** call-seq: train(input, expected_output)
 
+    Train with a single input-output pair.
+        input - The inputs given to the network
+        expected_output - The outputs expected.  */
+static VALUE train(VALUE self, VALUE input, VALUE expected_output)
+{
+    Check_Type(input, T_ARRAY);
+    Check_Type(expected_output, T_ARRAY);
+
+    struct fann* f;
+    Data_Get_Struct(self, struct fann, f);
+
+    unsigned int num_input = RARRAY_LEN(input);
+    unsigned int num_output = RARRAY_LEN(expected_output);
+
+    fann_type data_input[num_input], data_output[num_output];
+
+    int i;
+
+    for (i = 0; i < num_input; i++) {
+        data_input[i] = NUM2DBL(RARRAY_PTR(input)[i]);
+    }
+
+    for (i = 0; i < num_output; i++) {
+        data_output[i] = NUM2DBL(RARRAY_PTR(expected_output)[i]);
+    }
+
+    fann_train(f, data_input, data_output);
+
+    return rb_int_new(0);
+}
 
 /** call-seq: train_on_data(train_data, max_epochs, epochs_between_reports, desired_error)
 
@@ -1559,6 +1590,7 @@ void Init_ruby_fann ()
     rb_define_method(m_rb_fann_standard_class, "print_parameters", print_parameters, 0);
     rb_define_method(m_rb_fann_standard_class, "randomize_weights", randomize_weights, 2);
     rb_define_method(m_rb_fann_standard_class, "run", run, 1);
+    rb_define_method(m_rb_fann_standard_class, "train", train, 2);
     rb_define_method(m_rb_fann_standard_class, "train_on_data", train_on_data, 4);
     rb_define_method(m_rb_fann_standard_class, "train_epoch", train_epoch, 1);
     rb_define_method(m_rb_fann_standard_class, "test_data", test_data, 1);  
@@ -1658,6 +1690,7 @@ void Init_ruby_fann ()
     rb_define_method(m_rb_fann_shortcut_class, "print_parameters", print_parameters, 0);
     rb_define_method(m_rb_fann_shortcut_class, "randomize_weights", randomize_weights, 2);
     rb_define_method(m_rb_fann_shortcut_class, "run", run, 1);
+    rb_define_method(m_rb_fann_shortcut_class, "train", train, 2);
     rb_define_method(m_rb_fann_shortcut_class, "train_on_data", train_on_data, 4);
     rb_define_method(m_rb_fann_shortcut_class, "train_epoch", train_epoch, 1);
     rb_define_method(m_rb_fann_shortcut_class, "test_data", test_data, 1);  

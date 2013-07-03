@@ -147,6 +147,20 @@ class RubyFannTest < Test::Unit::TestCase
     outputs = fann.run([0.3, 0.2, 0.4])    
     puts "OUTPUT FROM RUN WAS #{outputs.inspect}"
   end
+
+	def test_train_single
+		data = {
+			[0.3, 0.4, 0.5] => [0.7],
+			[0.1, 0.2, 0.3] => [0.8]
+		}
+    fann = RubyFann::Standard.new(:num_inputs=>3, :hidden_neurons=>[2, 8, 4, 3, 4], :num_outputs=>1)
+
+		data.each { |input, output|
+			fann.train(input, output)
+		}
+    outputs = fann.run([0.3, 0.2, 0.4])
+    puts "OUTPUT FROM RUN WAS #{outputs.inspect}"
+	end
   
   def test_train_callback
     puts "train callback"
