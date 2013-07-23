@@ -30,11 +30,11 @@ module RubyFann
     # Generate output graph with given neural network to the given output path (PNG)
     #   If args[:three_dimensional] is set, then a 3d VRML graph will be generated (experimental)
     def graph(neural_net, output_path, args={})
-      if(args[:three_dimensional])
-        graph_viz = GraphViz::new( "G", :output => "vrml", :dim=>'3') # , :size=>"17,11"     
+      if (args[:three_dimensional])
+        graph_viz = GraphViz::new( "G", :dim=>'3') # , :size=>"17,11"     
         shape="point"
       else
-        graph_viz = GraphViz::new( "G", :output => "png", :dim=>'2') # , :size=>"17,11"     
+        graph_viz = GraphViz::new( "G", :dim=>'2') # , :size=>"17,11"     
         shape="egg"
       end
       
@@ -98,8 +98,13 @@ module RubyFann
         end
         
       end      
-            
-      graph_viz.output(:file=>output_path)
+      
+      if (args[:three_dimensional])
+        graph_viz.output(:vrml=>output_path)
+      else
+        graph_viz.output(:png=>output_path)
+      end
+      
       
     end
   end
