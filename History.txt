@@ -1,3 +1,8 @@
+== 1.2.4 2013-08-01
+* bug fix - adopted new graphviz parameters (ScottLi)
+* Add Ruby equivalent of fann_train(MichalPokorny)
+* Ignores Ole Kruger
+    
 == 1.2.3 2013-04-01
 * Remove nodoc directive
 

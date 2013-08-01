@@ -73,6 +73,12 @@ end
 ### A sample project using RubyFann to play tic-tac-toe
 https://github.com/bigohstudios/tictactoe
 
+## Contributors
+1. Steven Miers
+2. Ole Krüger
+3. dignati
+4. Michal Pokorný
+5. Scott Li (locksley)
 
 ## Contributing
 
