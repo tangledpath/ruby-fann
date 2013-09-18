@@ -4,7 +4,7 @@
 
 RubyFann, or "ruby-fann" is a ruby gem that binds to FANN (Fast Artificial Neural Network) from within a ruby/rails environment.  FANN is a is a free open source neural network library, which implements multilayer artificial neural networks with support for both fully connected and sparsely connected networks.  It is easy to use, versatile, well documented, and fast.  RubyFann makes working with neural networks a breeze using ruby, with the added benefit that most of the heavy lifting is done natively.
 
-A talk given by our friend from Big Oh Studios at Lone Star Ruby 2013: http://confreaks.com/videos/2609-lonestarruby2013-neural-networks-with-rubyfann
+A talk given by our friend Ethan from Big-Oh Studios at Lone Star Ruby 2013: http://confreaks.com/videos/2609-lonestarruby2013-neural-networks-with-rubyfann
 
 ## Installation
 
