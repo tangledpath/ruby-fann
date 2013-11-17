@@ -1,6 +1,6 @@
 /*
 Fast Artificial Neural Network Library (fann)
-Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -60,6 +60,8 @@ struct fann_error;
 	FANN_E_TRAIN_DATA_SUBSET - Trying to take subset which is not within the training set
 	FANN_E_INDEX_OUT_OF_BOUND - Index is out of bound
 	FANN_E_SCALE_NOT_PRESENT - Scaling parameters not present
+    FANN_E_INPUT_NO_MATCH - The number of input neurons in the ann and data don't match
+    FANN_E_OUTPUT_NO_MATCH - The number of output neurons in the ann and data don't match
 */
 enum fann_errno_enum
 {
@@ -81,7 +83,9 @@ enum fann_errno_enum
 	FANN_E_CANT_USE_TRAIN_ALG,
 	FANN_E_TRAIN_DATA_SUBSET,
 	FANN_E_INDEX_OUT_OF_BOUND,
-	FANN_E_SCALE_NOT_PRESENT
+	FANN_E_SCALE_NOT_PRESENT,
+	FANN_E_INPUT_NO_MATCH,
+	FANN_E_OUTPUT_NO_MATCH
 };
 
 /* Group: Error Handling */

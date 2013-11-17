@@ -1,6 +1,6 @@
 /*
   Fast Artificial Neural Network Library (fann)
-  Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+  Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
   
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -76,7 +76,7 @@ FANN_EXTERNAL void FANN_API fann_cascadetrain_on_data(struct fann *ann, struct f
 			{
 				printf
 					("Neurons     %3d. Current error: %.6f. Total error:%8.4f. Epochs %5d. Bit fail %3d",
-					 i, error, ann->MSE_value, total_epochs, ann->num_bit_fail);
+					 i-1, error, ann->MSE_value, total_epochs, ann->num_bit_fail);
 				if((ann->last_layer-2) != ann->first_layer)
 				{
 					printf(". candidate steepness %.2f. function %s", 
@@ -147,6 +147,7 @@ int fann_train_outputs(struct fann *ann, struct fann_train_data *data, float des
 	float backslide_improvement = -1.0e20f;
 	unsigned int i;
 	unsigned int max_epochs = ann->cascade_max_out_epochs;
+	unsigned int min_epochs = ann->cascade_min_out_epochs;
 	unsigned int stagnation = max_epochs;
 
 	/* TODO should perhaps not clear all arrays */
@@ -177,7 +178,11 @@ int fann_train_outputs(struct fann *ann, struct fann_train_data *data, float des
 
 		/* After any significant change, set a new goal and
 		 * allow a new quota of epochs to reach it */
-		if((error_improvement > target_improvement) || (error_improvement < backslide_improvement))
+		
+		if((target_improvement >= 0 &&
+			(error_improvement > target_improvement || error_improvement < backslide_improvement)) ||
+		(target_improvement < 0 &&
+			(error_improvement < target_improvement || error_improvement > backslide_improvement)))
 		{
 			/*printf("error_improvement=%f, target_improvement=%f, backslide_improvement=%f, stagnation=%d\n", error_improvement, target_improvement, backslide_improvement, stagnation); */
 
@@ -187,7 +192,7 @@ int fann_train_outputs(struct fann *ann, struct fann_train_data *data, float des
 		}
 
 		/* No improvement in allotted period, so quit */
-		if(i >= stagnation)
+		if(i >= stagnation && i >= min_epochs)
 		{
 			return i + 1;
 		}
@@ -199,7 +204,7 @@ int fann_train_outputs(struct fann *ann, struct fann_train_data *data, float des
 float fann_train_outputs_epoch(struct fann *ann, struct fann_train_data *data)
 {
 	unsigned int i;
-
+	
 	fann_reset_MSE(ann);
 
 	for(i = 0; i < data->num_data; i++)
@@ -214,6 +219,11 @@ float fann_train_outputs_epoch(struct fann *ann, struct fann_train_data *data)
 		case FANN_TRAIN_RPROP:
 			fann_update_weights_irpropm(ann, (ann->last_layer - 1)->first_neuron->first_con,
 										ann->total_connections);
+			break;
+		case FANN_TRAIN_SARPROP:
+			fann_update_weights_sarprop(ann, ann->sarprop_epoch, (ann->last_layer - 1)->first_neuron->first_con,
+										ann->total_connections);
+			++(ann->sarprop_epoch);
 			break;
 		case FANN_TRAIN_QUICKPROP:
 			fann_update_weights_quickprop(ann, data->num_data,
@@ -414,9 +424,8 @@ int fann_initialize_candidates(struct fann *ann)
 		}
 	}
 
-	/* Some test code to do semi Widrow + Nguyen initialization */
-	scale_factor = (float) 2.0f*(pow((double) (0.7f * (double) num_hidden_neurons),
-				                (double) (1.0f / (double) ann->num_input)));
+	/* Some code to do semi Widrow + Nguyen initialization */
+	scale_factor = (float) (2.0 * pow(0.7f * (float)num_hidden_neurons, 1.0f / (float) ann->num_input));
 	if(scale_factor > 8)
 		scale_factor = 8;
 	else if(scale_factor < 0.5)
@@ -487,6 +496,7 @@ int fann_train_candidates(struct fann *ann, struct fann_train_data *data)
 	fann_type backslide_cand_score = -1.0e20f;
 	unsigned int i;
 	unsigned int max_epochs = ann->cascade_max_cand_epochs;
+	unsigned int min_epochs = ann->cascade_min_cand_epochs;
 	unsigned int stagnation = max_epochs;
 
 	if(ann->cascade_candidate_scores == NULL)
@@ -527,7 +537,7 @@ int fann_train_candidates(struct fann *ann, struct fann_train_data *data)
 		}
 
 		/* No improvement in allotted period, so quit */
-		if(i >= stagnation)
+		if(i >= stagnation && i >= min_epochs)
 		{
 #ifdef CASCADE_DEBUG
 			printf("Stagnation with %d epochs, best candidate score %f, real score: %f\n", i + 1,
@@ -661,6 +671,11 @@ void fann_update_candidate_weights(struct fann *ann, unsigned int num_data)
 			fann_update_weights_irpropm(ann, first_cand->first_con,
 										last_cand->last_con + ann->num_output);
 			break;
+		case FANN_TRAIN_SARPROP:
+			/* TODO: increase epoch? */
+			fann_update_weights_sarprop(ann, ann->sarprop_epoch, first_cand->first_con,
+										last_cand->last_con + ann->num_output);
+			break;
 		case FANN_TRAIN_QUICKPROP:
 			fann_update_weights_quickprop(ann, num_data, first_cand->first_con,
 										  last_cand->last_con + ann->num_output);
@@ -755,7 +770,7 @@ fann_type fann_train_candidates_epoch(struct fann *ann, struct fann_train_data *
 	}
 
 	ann->cascade_best_candidate = ann->total_neurons + best_candidate + 1;
-#ifdef CASCADE_DEBUG_FULL
+#ifdef CASCADE_DEBUG
 	printf("Best candidate[%d]: with score %f, real score: %f\n", best_candidate,
 		   ann->MSE_value - best_score, best_score);
 #endif
@@ -973,6 +988,8 @@ FANN_GET_SET(fann_type, cascade_weight_multiplier)
 FANN_GET_SET(fann_type, cascade_candidate_limit)
 FANN_GET_SET(unsigned int, cascade_max_out_epochs)
 FANN_GET_SET(unsigned int, cascade_max_cand_epochs)
+FANN_GET_SET(unsigned int, cascade_min_out_epochs)
+FANN_GET_SET(unsigned int, cascade_min_cand_epochs)
 
 FANN_GET(unsigned int, cascade_activation_functions_count)
 FANN_GET(enum fann_activationfunc_enum *, cascade_activation_functions)
