@@ -1,4 +1,5 @@
 # RubyFann
+*Artifical Intelligence in Ruby*
 
 [![Gem Version](https://badge.fury.io/rb/ruby-fann.png)](http://badge.fury.io/rb/ruby-fann)
 
@@ -81,7 +82,7 @@ https://github.com/bigohstudios/tictactoe
 1. Steven Miers
 2. Ole Krüger
 3. dignati
-4. Michal Pokorný
+4. Michal Pokorny
 5. Scott Li (locksley)
 
 ## Contributing

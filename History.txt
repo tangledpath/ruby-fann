@@ -1,3 +1,7 @@
+== 1.2.6
+* Update to FANN 2.2(MichalPokorny) 
+== 1.2.5 
+* Misc cleanup and docs
 == 1.2.4 2013-08-01
 * bug fix - adopted new graphviz parameters (ScottLi)
 * Add Ruby equivalent of fann_train(MichalPokorny)
