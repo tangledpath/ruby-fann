@@ -1,6 +1,6 @@
 /*
 Fast Artificial Neural Network Library (fann)
-Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -251,6 +251,17 @@ FANN_EXTERNAL float FANN_API fann_test_data(struct fann *ann, struct fann_train_
 */ 
 FANN_EXTERNAL struct fann_train_data *FANN_API fann_read_train_from_file(const char *filename);
 
+
+/* Function: fann_create_train
+   Creates an empty training data struct.
+  
+   See also:
+     <fann_read_train_from_file>, <fann_train_on_data>, <fann_destroy_train>,
+     <fann_save_train>
+
+    This function appears in FANN >= 2.2.0
+*/ 
+FANN_EXTERNAL struct fann_train_data * FANN_API fann_create_train(unsigned int num_data, unsigned int num_input, unsigned int num_output);
 
 /* Function: fann_create_train_from_callback
    Creates the training data struct from a user supplied function.
@@ -1199,5 +1210,101 @@ FANN_EXTERNAL float FANN_API fann_get_rprop_delta_zero(struct fann *ann);
    This function appears in FANN >= 2.1.0.
 */
 FANN_EXTERNAL void FANN_API fann_set_rprop_delta_zero(struct fann *ann, float rprop_delta_max);
+
+/* Method: fann_get_sarprop_weight_decay_shift
+
+   The sarprop weight decay shift.
+
+   The default delta max is -6.644.
+
+   See also:
+   <fann fann_set_sarprop_weight_decay_shift>
+
+   This function appears in FANN >= 2.1.0.
+   */ 
+FANN_EXTERNAL float FANN_API fann_get_sarprop_weight_decay_shift(struct fann *ann);
+
+/* Method: fann_set_sarprop_weight_decay_shift
+
+   Set the sarprop weight decay shift.
+
+   This function appears in FANN >= 2.1.0.
+
+   See also:
+   <fann_set_sarprop_weight_decay_shift>
+   */ 
+FANN_EXTERNAL void FANN_API fann_set_sarprop_weight_decay_shift(struct fann *ann, float sarprop_weight_decay_shift);
+
+/* Method: fann_get_sarprop_step_error_threshold_factor
+
+   The sarprop step error threshold factor.
+
+   The default delta max is 0.1.
+
+   See also:
+   <fann fann_get_sarprop_step_error_threshold_factor>
+
+   This function appears in FANN >= 2.1.0.
+   */ 
+FANN_EXTERNAL float FANN_API fann_get_sarprop_step_error_threshold_factor(struct fann *ann);
+
+/* Method: fann_set_sarprop_step_error_threshold_factor
+
+   Set the sarprop step error threshold factor.
+
+   This function appears in FANN >= 2.1.0.
+
+   See also:
+   <fann_get_sarprop_step_error_threshold_factor>
+   */ 
+FANN_EXTERNAL void FANN_API fann_set_sarprop_step_error_threshold_factor(struct fann *ann, float sarprop_step_error_threshold_factor);
+
+/* Method: fann_get_sarprop_step_error_shift
+
+   The get sarprop step error shift.
+
+   The default delta max is 1.385.
+
+   See also:
+   <fann_set_sarprop_step_error_shift>
+
+   This function appears in FANN >= 2.1.0.
+   */ 
+FANN_EXTERNAL float FANN_API fann_get_sarprop_step_error_shift(struct fann *ann);
+
+/* Method: fann_set_sarprop_step_error_shift
+
+   Set the sarprop step error shift.
+
+   This function appears in FANN >= 2.1.0.
+
+   See also:
+   <fann_get_sarprop_step_error_shift>
+   */ 
+FANN_EXTERNAL void FANN_API fann_set_sarprop_step_error_shift(struct fann *ann, float sarprop_step_error_shift);
+
+/* Method: fann_get_sarprop_temperature
+
+   The sarprop weight decay shift.
+
+   The default delta max is 0.015.
+
+   See also:
+   <fann_set_sarprop_temperature>
+
+   This function appears in FANN >= 2.1.0.
+   */ 
+FANN_EXTERNAL float FANN_API fann_get_sarprop_temperature(struct fann *ann);
+
+/* Method: fann_set_sarprop_temperature
+
+   Set the sarprop_temperature.
+
+   This function appears in FANN >= 2.1.0.
+
+   See also:
+   <fann_get_sarprop_temperature>
+   */ 
+FANN_EXTERNAL void FANN_API fann_set_sarprop_temperature(struct fann *ann, float sarprop_temperature);
 
 #endif

@@ -1,6 +1,6 @@
 /*
 Fast Artificial Neural Network Library (fann)
-Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -90,6 +90,8 @@ void fann_update_weights_batch(struct fann *ann, unsigned int num_data, unsigned
 							   unsigned int past_end);
 void fann_update_weights_irpropm(struct fann *ann, unsigned int first_weight,
 								 unsigned int past_end);
+void fann_update_weights_sarprop(struct fann *ann, unsigned int epoch, unsigned int first_weight,
+								unsigned int past_end);
 
 void fann_clear_train_arrays(struct fann *ann);
 
@@ -111,6 +113,7 @@ int fann_train_candidates(struct fann *ann, struct fann_train_data *data);
 fann_type fann_train_candidates_epoch(struct fann *ann, struct fann_train_data *data);
 
 void fann_install_candidate(struct fann *ann);
+int fann_check_input_output_sizes(struct fann *ann, struct fann_train_data *data);
 
 int fann_initialize_candidates(struct fann *ann);
 
@@ -123,6 +126,7 @@ int fann_allocate_scale(struct fann *ann);
 #define fann_min(x, y) (((x) < (y)) ? (x) : (y))
 #define fann_safe_free(x) {if(x) { free(x); x = NULL; }}
 #define fann_clip(x, lo, hi) (((x) < (lo)) ? (lo) : (((x) > (hi)) ? (hi) : (x)))
+#define fann_exp2(x) exp(0.69314718055994530942*(x))
 /*#define fann_clip(x, lo, hi) (x)*/
 
 #define fann_rand(min_value, max_value) (((float)(min_value))+(((float)(max_value)-((float)(min_value)))*rand()/(RAND_MAX+1.0f)))

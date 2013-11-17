@@ -1,6 +1,6 @@
 /*
 Fast Artificial Neural Network Library (fann)
-Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
 
 This library is free software; you can redistribute it and/or
 modify it under the terms of the GNU Lesser General Public
@@ -309,6 +309,33 @@ FANN_EXTERNAL void FANN_API fann_set_cascade_max_out_epochs(struct fann *ann,
 															 unsigned int cascade_max_out_epochs);
 
 
+/* Function: fann_get_cascade_min_out_epochs
+
+   The minimum out epochs determines the minimum number of epochs the output connections
+   must be trained after adding a new candidate neuron.
+   
+   The default min out epochs is 50
+
+   See also:
+   		<fann_set_cascade_min_out_epochs>
+
+	This function appears in FANN >= 2.2.0.
+ */
+FANN_EXTERNAL unsigned int FANN_API fann_get_cascade_min_out_epochs(struct fann *ann);
+
+
+/* Function: fann_set_cascade_min_out_epochs
+
+   Sets the minimum out epochs.
+
+   See also:
+   		<fann_get_cascade_min_out_epochs>
+
+	This function appears in FANN >= 2.2.0.
+ */
+FANN_EXTERNAL void FANN_API fann_set_cascade_min_out_epochs(struct fann *ann, 
+															 unsigned int cascade_min_out_epochs);
+
 /* Function: fann_get_cascade_max_cand_epochs
 
    The maximum candidate epochs determines the maximum number of epochs the input 
@@ -336,6 +363,33 @@ FANN_EXTERNAL unsigned int FANN_API fann_get_cascade_max_cand_epochs(struct fann
 FANN_EXTERNAL void FANN_API fann_set_cascade_max_cand_epochs(struct fann *ann, 
 															 unsigned int cascade_max_cand_epochs);
 
+
+/* Function: fann_get_cascade_min_cand_epochs
+
+   The minimum candidate epochs determines the minimum number of epochs the input 
+   connections to the candidates may be trained before adding a new candidate neuron.
+   
+   The default min candidate epochs is 50
+
+   See also:
+   		<fann_set_cascade_min_cand_epochs>
+
+	This function appears in FANN >= 2.2.0.
+ */
+FANN_EXTERNAL unsigned int FANN_API fann_get_cascade_min_cand_epochs(struct fann *ann);
+
+
+/* Function: fann_set_cascade_min_cand_epochs
+
+   Sets the min candidate epochs.
+  
+   See also:
+   		<fann_get_cascade_min_cand_epochs>
+
+	This function appears in FANN >= 2.2.0.
+ */
+FANN_EXTERNAL void FANN_API fann_set_cascade_min_cand_epochs(struct fann *ann, 
+															 unsigned int cascade_min_cand_epochs);
 
 /* Function: fann_get_cascade_num_candidates
 

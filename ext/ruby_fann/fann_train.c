@@ -1,6 +1,6 @@
 /*
   Fast Artificial Neural Network Library (fann)
-  Copyright (C) 2003 Steffen Nissen (lukesky@diku.dk)
+  Copyright (C) 2003-2012 Steffen Nissen (sn@leenissen.dk)
   
   This library is free software; you can redistribute it and/or
   modify it under the terms of the GNU Lesser General Public
@@ -21,6 +21,7 @@
 #include <stdlib.h>
 #include <stdarg.h>
 #include <string.h>
+#include <math.h>
 
 #include "config.h"
 #include "fann.h"
@@ -206,6 +207,7 @@ FANN_EXTERNAL unsigned int FANN_API fann_get_bit_fail(struct fann *ann)
  */
 FANN_EXTERNAL void FANN_API fann_reset_MSE(struct fann *ann)
 {
+/*printf("resetMSE %d %f\n", ann->num_MSE, ann->MSE_value);*/
 	ann->num_MSE = 0;
 	ann->MSE_value = 0;
 	ann->num_bit_fail = 0;
@@ -764,6 +766,85 @@ void fann_update_weights_irpropm(struct fann *ann, unsigned int first_weight, un
 	}
 }
 
+/* INTERNAL FUNCTION
+   The SARprop- algorithm
+*/
+void fann_update_weights_sarprop(struct fann *ann, unsigned int epoch, unsigned int first_weight, unsigned int past_end)
+{
+	fann_type *train_slopes = ann->train_slopes;
+	fann_type *weights = ann->weights;
+	fann_type *prev_steps = ann->prev_steps;
+	fann_type *prev_train_slopes = ann->prev_train_slopes;
+
+	fann_type prev_step, slope, prev_slope, next_step = 0, same_sign;
+
+	/* These should be set from variables */
+	float increase_factor = ann->rprop_increase_factor;	/*1.2; */
+	float decrease_factor = ann->rprop_decrease_factor;	/*0.5; */
+	/* TODO: why is delta_min 0.0 in iRprop? SARPROP uses 1x10^-6 (Braun and Riedmiller, 1993) */
+	float delta_min = 0.000001f;
+	float delta_max = ann->rprop_delta_max;	/*50.0; */
+	float weight_decay_shift = ann->sarprop_weight_decay_shift; /* ld 0.01 = -6.644 */
+	float step_error_threshold_factor = ann->sarprop_step_error_threshold_factor; /* 0.1 */
+	float step_error_shift = ann->sarprop_step_error_shift; /* ld 3 = 1.585 */
+	float T = ann->sarprop_temperature;
+	float MSE = fann_get_MSE(ann);
+	float RMSE = (float)sqrt(MSE);
+
+	unsigned int i = first_weight;
+
+
+	/* for all weights; TODO: are biases included? */
+	for(; i != past_end; i++)
+	{
+		/* TODO: confirm whether 1x10^-6 == delta_min is really better */
+		prev_step = fann_max(prev_steps[i], (fann_type) 0.000001);	/* prev_step may not be zero because then the training will stop */
+		/* calculate SARPROP slope; TODO: better as new error function? (see SARPROP paper)*/
+		slope = -train_slopes[i] - weights[i] * (fann_type)fann_exp2(-T * epoch + weight_decay_shift);
+
+		/* TODO: is prev_train_slopes[i] 0.0 in the beginning? */
+		prev_slope = prev_train_slopes[i];
+
+		same_sign = prev_slope * slope;
+
+		if(same_sign > 0.0)
+		{
+			next_step = fann_min(prev_step * increase_factor, delta_max);
+			/* TODO: are the signs inverted? see differences between SARPROP paper and iRprop */
+			if (slope < 0.0)
+				weights[i] += next_step;
+			else
+				weights[i] -= next_step;
+		}
+		else if(same_sign < 0.0)
+		{
+			if(prev_step < step_error_threshold_factor * MSE)
+				next_step = prev_step * decrease_factor + (float)rand() / RAND_MAX * RMSE * (fann_type)fann_exp2(-T * epoch + step_error_shift);
+			else
+				next_step = fann_max(prev_step * decrease_factor, delta_min);
+
+			slope = 0.0;
+		}
+		else
+		{
+			if(slope < 0.0)
+				weights[i] += prev_step;
+			else
+				weights[i] -= prev_step;
+		}
+
+
+		/*if(i == 2){
+		 * printf("weight=%f, slope=%f, next_step=%f, prev_step=%f\n", weights[i], slope, next_step, prev_step);
+		 * } */
+
+		/* update global data arrays */
+		prev_steps[i] = next_step;
+		prev_train_slopes[i] = slope;
+		train_slopes[i] = 0.0;
+	}
+}
+
 #endif
 
 FANN_GET_SET(enum fann_train_enum, training_algorithm)
@@ -957,6 +1038,10 @@ FANN_GET_SET(float, rprop_decrease_factor)
 FANN_GET_SET(float, rprop_delta_min)
 FANN_GET_SET(float, rprop_delta_max)
 FANN_GET_SET(float, rprop_delta_zero)
+FANN_GET_SET(float, sarprop_weight_decay_shift)
+FANN_GET_SET(float, sarprop_step_error_threshold_factor)
+FANN_GET_SET(float, sarprop_step_error_shift)
+FANN_GET_SET(float, sarprop_temperature)
 FANN_GET_SET(enum fann_stopfunc_enum, train_stop_function)
 FANN_GET_SET(fann_type, bit_fail_limit)
 FANN_GET_SET(float, learning_momentum)
