@@ -1,1 +1,1 @@
-require "ruby_fann"
+require 'ruby_fann'
