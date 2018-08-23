@@ -1,18 +1,21 @@
 PATH
   remote: .
   specs:
-    ruby-fann (1.2.0)
+    ruby-fann (1.2.7)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    json (1.7.7)
-    rdoc (3.12.2)
-      json (~> 1.4)
+    json (2.1.0)
+    rdoc (6.0.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  json
   rdoc
   ruby-fann!
+
+BUNDLED WITH
+   1.16.3

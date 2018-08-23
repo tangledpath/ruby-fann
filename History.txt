@@ -1,12 +1,14 @@
+== 1.2.7
+* Update to more recent json and rdoc files
 == 1.2.6
-* Update to FANN 2.2(MichalPokorny) 
-== 1.2.5 
+* Update to FANN 2.2(MichalPokorny)
+== 1.2.5
 * Misc cleanup and docs
 == 1.2.4 2013-08-01
 * bug fix - adopted new graphviz parameters (ScottLi)
 * Add Ruby equivalent of fann_train(MichalPokorny)
-* Ignores Ole Kruger
-    
+* Ignores(Ole Kruger)
+
 == 1.2.3 2013-04-01
 * Remove nodoc directive
 
@@ -20,7 +22,7 @@
 * Move to github.  Dig out hoe.
 
 == 1.1.3 2010-03-08
-* 1 major enhancement - 
+* 1 major enhancement -
   * ruby 1.9 compatibility:
 
 == 1.0.3 2009-12-24
