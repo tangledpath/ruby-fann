@@ -1,0 +1,14 @@
+Thu, 24 Jan 2019 11:49:27 -0600
+README.txt	Thu, 24 Jan 2019 11:30:13 -0600
+lib/ruby-fann.rb	Thu, 24 Jan 2019 11:30:13 -0600
+lib/ruby_fann.rb	Thu, 24 Jan 2019 11:30:13 -0600
+lib/ruby_fann/neurotica.rb	Thu, 24 Jan 2019 11:30:13 -0600
+lib/ruby_fann/version.rb	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/doublefann.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann_cascade.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann_error.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann_io.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann_train.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/fann_train_data.c	Thu, 24 Jan 2019 11:30:13 -0600
+ext/ruby_fann/ruby_fann.c	Thu, 24 Jan 2019 11:30:13 -0600
