@@ -26,8 +26,11 @@ Or install it yourself as:
 First, Go here & read about FANN. You don't need to install it before using the gem, but understanding FANN will help you understand what you can do with the ruby-fann gem:
 http://leenissen.dk/fann/
 
-*ruby-fann documentation*:
+## Documentation:
+*ruby-fann documentation:*
 http://tangledpath.github.io/ruby-fann/index.html
+
+
 
 ### Example training & subsequent execution:
 
