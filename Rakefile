@@ -43,7 +43,8 @@ task :default => :test
 Rake::RDocTask.new do |rd|
   rd.main = "README.md"
   rd.rdoc_dir = "docs"
-  rd.rdoc_files.include("README.md", "README.txt", "lib/**/*.rb", "ext/**/*.c")
+  rd.rdoc_files.include("README.md", "lib/**/*.rb", "ext/**/*.c")
   rd.title = "Ruby FANN Gem documentation"
+  #rd.generator = "fivefish"
 end
 
