@@ -41,9 +41,9 @@ desc "Run tests"
 task :default => :test
 
 Rake::RDocTask.new do |rd|
-  rd.main = "README.txt"
+  rd.main = "README.md"
   rd.rdoc_dir = "docs"
-  rd.rdoc_files.include("README.txt", "lib/**/*.rb", "ext/**/*.c")
+  rd.rdoc_files.include("README.md", "README.txt", "lib/**/*.rb", "ext/**/*.c")
   rd.title = "Ruby FANN Gem documentation"
 end
 

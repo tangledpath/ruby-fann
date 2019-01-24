@@ -19,6 +19,7 @@
 
 
 
+
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -291,16 +292,14 @@
 
         <div class="method-description">
           
-          <p>Initialization routine for both standard, shortcut &amp; filename forms of
-FANN:</p>
+          <p>Initialization routine for both standard, shortcut &amp; filename forms of FANN:</p>
 
-<p><a href="Standard.html">Standard</a> Initialization:</p>
+<p><a href="Standard.html"><code>Standard</code></a> Initialization:</p>
 
 <pre class="ruby"><span class="ruby-constant">RubyFann</span><span class="ruby-operator">::</span><span class="ruby-constant">Standard</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:num_inputs</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>, <span class="ruby-value">:hidden_neurons</span><span class="ruby-operator">=&gt;</span>[<span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>], <span class="ruby-value">:num_outputs</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>)
 </pre>
 
-<p><a href="Shortcut.html">Shortcut</a> Initialization (e.g., for use in
-cascade training):</p>
+<p><a href="Shortcut.html"><code>Shortcut</code></a> Initialization (e.g., for use in cascade training):</p>
 
 <pre class="ruby"><span class="ruby-constant">RubyFann</span><span class="ruby-operator">::</span><span class="ruby-constant">Shortcut</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:num_inputs</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">5</span>, <span class="ruby-value">:num_outputs</span><span class="ruby-operator">=&gt;</span><span class="ruby-value">1</span>)
 </pre>
@@ -419,8 +418,7 @@ cascade training):</p>
 
         <div class="method-description">
           
-          <p>Perform cascade training with training data created with <a
-href="TrainData.html#method-c-new">RubyFann::TrainData.new</a></p>
+          <p>Perform cascade training with training data created with <a href="TrainData.html#method-c-new"><code>RubyFann::TrainData.new</code></a></p>
 
 <pre>max_epochs - The maximum number of neurons in trained network
 neurons_between_reports - The number of neurons between printing a status report to stdout.
@@ -509,11 +507,9 @@ is chosen by &lt;set_train_stop_function&gt;.</pre>
 
         <div class="method-description">
           
-          <p>Get the activation function for neuron number <strong>neuron</strong> in
-layer number <strong>layer</strong>,  counting the input layer as layer 0.</p>
+          <p>Get the activation function for neuron number <strong>neuron</strong> in layer number <strong>layer</strong>,  counting the input layer as layer 0. </p>
 
-<p>It is not possible to get activation functions for the neurons in the input
-layer.</p>
+<p>It is not possible to get activation functions for the neurons in the input layer. </p>
           
           
 
@@ -554,8 +550,7 @@ layer.</p>
 
         <div class="method-description">
           
-          <p>Get the activation steepness for neuron number neuron in layer number
-layer, counting the input layer as layer 0.</p>
+          <p>Get the activation steepness for neuron number neuron in layer number layer, counting the input layer as layer 0.</p>
           
           
 
@@ -645,10 +640,7 @@ layer, counting the input layer as layer 0.</p>
           <pre class="ruby"><span class="ruby-constant">The</span> <span class="ruby-identifier">number</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">fail</span> <span class="ruby-identifier">bits</span>; <span class="ruby-identifier">means</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">number</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">output</span> <span class="ruby-identifier">neurons</span> <span class="ruby-identifier">which</span> <span class="ruby-identifier">differ</span> <span class="ruby-identifier">more</span>
 </pre>
 
-<p>than the bit fail limit (see &lt;fann_get_bit_fail_limit&gt;,
-&lt;fann_set_bit_fail_limit&gt;).  The bits are counted in all of the
-training data, so this number can be higher than the number of training
-data.</p>
+<p>than the bit fail limit (see &lt;fann_get_bit_fail_limit&gt;, &lt;fann_set_bit_fail_limit&gt;).  The bits are counted in all of the training data, so this number can be higher than the number of training data.</p>
           
           
 
@@ -714,8 +706,7 @@ data.</p>
 
         <div class="method-description">
           
-          <p>The cascade activation functions is an array of the different activation
-functions used by</p>
+          <p>The cascade activation functions is an array of the different activation functions used by</p>
 
 <pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">candidates</span>.  <span class="ruby-constant">The</span> <span class="ruby-identifier">default</span> <span class="ruby-identifier">is</span> [<span class="ruby-value">:sigmoid</span>, <span class="ruby-value">:sigmoid_symmetric</span>, <span class="ruby-value">:gaussian</span>, <span class="ruby-value">:gaussian_symmetric</span>, <span class="ruby-value">:elliot</span>, <span class="ruby-value">:elliot_symmetric</span>]
 </pre>
@@ -765,8 +756,7 @@ functions used by</p>
 
         <div class="method-description">
           
-          <p>The number of activation functions in the
-&lt;get_cascade_activation_functions&gt; array</p>
+          <p>The number of activation functions in the &lt;get_cascade_activation_functions&gt; array</p>
           
           
 
@@ -799,8 +789,7 @@ functions used by</p>
 
         <div class="method-description">
           
-          <p>The cascade activation steepnesses array is an array of the different
-activation functions used by</p>
+          <p>The cascade activation steepnesses array is an array of the different activation functions used by</p>
 
 <pre>the candidates.</pre>
           
@@ -849,8 +838,7 @@ activation functions used by</p>
 
         <div class="method-description">
           
-          <p>The number of activation steepnesses in the
-&lt;get_cascade_activation_functions&gt; array.</p>
+          <p>The number of activation steepnesses in the &lt;get_cascade_activation_functions&gt; array.</p>
           
           
 
@@ -916,8 +904,7 @@ activation functions used by</p>
 
         <div class="method-description">
           
-          <p>The candidate limit is a limit for how much the candidate neuron may be
-trained.</p>
+          <p>The candidate limit is a limit for how much the candidate neuron may be trained.</p>
 
 <pre>The limit is a limit on the proportion between the MSE and candidate score.</pre>
           
@@ -952,8 +939,7 @@ trained.</p>
 
         <div class="method-description">
           
-          <p>The number of cascade candidate stagnation epochs determines the number of
-epochs training is allowed to</p>
+          <p>The number of cascade candidate stagnation epochs determines the number of epochs training is allowed to</p>
 
 <pre>continue without changing the MSE by a fraction of &lt;get_cascade_candidate_change_fraction&gt;.</pre>
           
@@ -988,8 +974,7 @@ epochs training is allowed to</p>
 
         <div class="method-description">
           
-          <p>The maximum candidate epochs determines the maximum number of epochs the
-input</p>
+          <p>The maximum candidate epochs determines the maximum number of epochs the input </p>
 
 <pre>connections to the candidates may be trained before adding a new candidate neuron.</pre>
           
@@ -1024,8 +1009,7 @@ input</p>
 
         <div class="method-description">
           
-          <p>The maximum out epochs determines the maximum number of epochs the output
-connections</p>
+          <p>The maximum out epochs determines the maximum number of epochs the output connections</p>
 
 <pre>may be trained after adding a new candidate neuron.</pre>
           
@@ -1060,8 +1044,7 @@ connections</p>
 
         <div class="method-description">
           
-          <p>The number of candidate groups is the number of groups of identical
-candidates which will be used</p>
+          <p>The number of candidate groups is the number of groups of identical candidates which will be used</p>
 
 <pre>during training.</pre>
           
@@ -1096,8 +1079,7 @@ candidates which will be used</p>
 
         <div class="method-description">
           
-          <p>The number of candidates used during training (calculated by multiplying
-&lt;get_cascade_activation_functions_count&gt;,</p>
+          <p>The number of candidates used during training (calculated by multiplying &lt;get_cascade_activation_functions_count&gt;,</p>
 
 <pre>&lt;get_cascade_activation_steepnesses_count&gt; and &lt;get_cascade_num_candidate_groups&gt;).</pre>
           
@@ -1165,8 +1147,7 @@ candidates which will be used</p>
 
         <div class="method-description">
           
-          <p>The number of cascade output stagnation epochs determines the number of
-epochs training is allowed to</p>
+          <p>The number of cascade output stagnation epochs determines the number of epochs training is allowed to </p>
 
 <pre>continue without changing the MSE by a fraction of &lt;get_cascade_output_change_fraction&gt;.</pre>
           
@@ -1201,8 +1182,7 @@ epochs training is allowed to</p>
 
         <div class="method-description">
           
-          <p>The weight multiplier is a parameter which is used to multiply the weights
-from the candidate neuron</p>
+          <p>The weight multiplier is a parameter which is used to multiply the weights from the candidate neuron</p>
 
 <pre>before adding the neuron to the neural network. This parameter is usually between 0 and 1, and is used
 to make the training a bit less aggressive.</pre>
@@ -1271,8 +1251,7 @@ to make the training a bit less aggressive.</pre>
 
         <div class="method-description">
           
-          <p>Get list of layers in array format where each element contains number of
-neurons in that layer</p>
+          <p>Get list of layers in array format where each element contains number of neurons in that layer</p>
           
           
 
@@ -1354,8 +1333,7 @@ neurons in that layer</p>
 
         <div class="method-description">
           
-          <p>The learning rate is used to determine how aggressive training should be
-for some of the</p>
+          <p>The learning rate is used to determine how aggressive training should be for some of the</p>
 
 <pre>training algorithms (:incremental, :batch, :quickprop).
 Do however note that it is not used in :rprop. 
@@ -1443,8 +1421,7 @@ The default learning rate is 0.7.</pre>
 
         <div class="method-description">
           
-          <p>Return array&lt;hash&gt; where each array element is a hash representing a
-neuron.  It contains the following keys:</p>
+          <p>Return array&lt;hash&gt; where each array element is a hash representing a neuron.  It contains the following keys:</p>
 
 <pre>  :activation_function, symbol -- the activation function
   :activation_steepness=float -- The steepness of the activation function
@@ -1642,10 +1619,7 @@ This could be done more elegantly (e.g., defining more ruby ext classes).
 
         <div class="method-description">
           
-          <p>The decay is a small negative valued number which is the factor that the
-weights  should become smaller in each iteration during quickprop training.
-This is used  to make sure that the weights do not become too high during
-training.</p>
+          <p>The decay is a small negative valued number which is the factor that the weights  should become smaller in each iteration during quickprop training. This is used  to make sure that the weights do not become too high during training.</p>
           
           
 
@@ -1678,9 +1652,7 @@ training.</p>
 
         <div class="method-description">
           
-          <p>The mu factor is used to increase and decrease the step-size during
-quickprop training.  The mu factor should always be above 1, since it would
-otherwise decrease the step-size  when it was suppose to increase it.</p>
+          <p>The mu factor is used to increase and decrease the step-size during quickprop training.  The mu factor should always be above 1, since it would otherwise decrease the step-size  when it was suppose to increase it.</p>
           
           
 
@@ -1713,8 +1685,7 @@ otherwise decrease the step-size  when it was suppose to increase it.</p>
 
         <div class="method-description">
           
-          <p>The decrease factor is a value smaller than 1, which is used to decrease
-the step-size during RPROP training.</p>
+          <p>The decrease factor is a value smaller than 1, which is used to decrease the step-size during RPROP training.</p>
           
           
 
@@ -1747,8 +1718,7 @@ the step-size during RPROP training.</p>
 
         <div class="method-description">
           
-          <p>The maximum step-size is a positive number determining how large the
-maximum step-size may be.</p>
+          <p>The maximum step-size is a positive number determining how large the maximum step-size may be.</p>
           
           
 
@@ -1781,8 +1751,7 @@ maximum step-size may be.</p>
 
         <div class="method-description">
           
-          <p>The minimum step-size is a small positive number determining how small the
-minimum step-size may be.</p>
+          <p>The minimum step-size is a small positive number determining how small the minimum step-size may be.</p>
           
           
 
@@ -1815,8 +1784,7 @@ minimum step-size may be.</p>
 
         <div class="method-description">
           
-          <p>The initial step-size is a positive number determining the initial step
-size.</p>
+          <p>The initial step-size is a positive number determining the initial step size.</p>
           
           
 
@@ -1849,8 +1817,7 @@ size.</p>
 
         <div class="method-description">
           
-          <p>The increase factor is a value larger than 1, which is used to  increase
-the step-size during RPROP training.</p>
+          <p>The increase factor is a value larger than 1, which is used to  increase the step-size during RPROP training.</p>
           
           
 
@@ -1949,8 +1916,7 @@ the step-size during RPROP training.</p>
 
         <div class="method-description">
           
-          <p>Returns the error function used during training.  One of the following
-symbols:</p>
+          <p>Returns the error function used during training.  One of the following symbols:</p>
 
 <pre>:linear, :tanh</pre>
           
@@ -2146,7 +2112,7 @@ symbols:</p>
 
         <div class="method-description">
           
-          <p>Will print the connections of the ann in a compact matrix,</p>
+          <p>Will print the connections of the ann in a compact matrix, </p>
 
 <pre>for easy viewing of the internals of the ann.</pre>
           
@@ -2223,8 +2189,7 @@ symbols:</p>
 
         <div class="method-description">
           
-          <p>Give each connection a random weight between <strong>min_weight</strong>
-and <strong>max_weight</strong></p>
+          <p>Give each connection a random weight between <strong>min_weight</strong> and <strong>max_weight</strong></p>
           
           
 
@@ -2262,8 +2227,7 @@ and <strong>max_weight</strong></p>
 
         <div class="method-description">
           
-          <p>Resets the mean square error from the network. This function also resets
-the number of bits that fail.</p>
+          <p>Resets the mean square error from the network. This function also resets the number of bits that fail.  </p>
           
           
 
@@ -2304,7 +2268,7 @@ the number of bits that fail.</p>
           
           <p>Run neural net on array&lt;Float&gt; of inputs with current parameters.</p>
 
-<p>Returns array&lt;Float&gt; as output</p>
+<p>Returns array&lt;Float&gt; as output </p>
           
           
 
@@ -2407,8 +2371,7 @@ the number of bits that fail.</p>
 
         <div class="method-description">
           
-          <p>Set the activation function for neuron number <strong>neuron</strong> in
-layer number <strong>layer</strong>,</p>
+          <p>Set the activation function for neuron number <strong>neuron</strong> in layer number <strong>layer</strong>, </p>
 
 <pre>counting the input layer as layer 0.  activation_func must be one of the following symbols:
     :linear, :threshold, :threshold_symmetric, :sigmoid, :sigmoid_stepwise, :sigmoid_symmetric, 
@@ -2457,8 +2420,7 @@ layer number <strong>layer</strong>,</p>
 
         <div class="method-description">
           
-          <p>Set the activation function for all of the hidden layers.  activation_func
-must be one of the following symbols:</p>
+          <p>Set the activation function for all of the hidden layers.  activation_func must be one of the following symbols:</p>
 
 <pre>:linear, :threshold, :threshold_symmetric, :sigmoid, :sigmoid_stepwise, :sigmoid_symmetric, 
 :sigmoid_symmetric_stepwise, :gaussian, :gaussian_symmetric, :gaussian_stepwise, :elliot, 
@@ -2503,8 +2465,7 @@ must be one of the following symbols:</p>
 
         <div class="method-description">
           
-          <p>Set the activation function for all the neurons in the layer number
-<strong>layer</strong>,</p>
+          <p>Set the activation function for all the neurons in the layer number <strong>layer</strong>, </p>
 
 <pre>  counting the input layer as layer 0.  activation_func must be one of the following symbols:
       :linear, :threshold, :threshold_symmetric, :sigmoid, :sigmoid_stepwise, :sigmoid_symmetric, 
@@ -2553,8 +2514,7 @@ It is not possible to set activation functions for the neurons in the input laye
 
         <div class="method-description">
           
-          <p>Set the activation function for the output layer.  activation_func must be
-one of the following symbols:</p>
+          <p>Set the activation function for the output layer.  activation_func must be one of the following symbols:</p>
 
 <pre>:linear, :threshold, :threshold_symmetric, :sigmoid, :sigmoid_stepwise, :sigmoid_symmetric, 
 :sigmoid_symmetric_stepwise, :gaussian, :gaussian_symmetric, :gaussian_stepwise, :elliot, 
@@ -2599,8 +2559,7 @@ one of the following symbols:</p>
 
         <div class="method-description">
           
-          <p>Set the activation steepness for neuron number {neuron} in layer number
-{layer},  counting the input layer as layer 0.</p>
+          <p>Set the activation steepness for neuron number {neuron} in layer number {layer},  counting the input layer as layer 0.</p>
           
           
 
@@ -2679,8 +2638,7 @@ one of the following symbols:</p>
 
         <div class="method-description">
           
-          <p>Set the activation steepness all of the neurons in layer number
-<strong>layer</strong>,  counting the input layer as layer 0.</p>
+          <p>Set the activation steepness all of the neurons in layer number <strong>layer</strong>,  counting the input layer as layer 0.</p>
           
           
 
@@ -2794,8 +2752,7 @@ one of the following symbols:</p>
 
         <div class="method-description">
           
-          <p>The cascade activation functions is an array of the different activation
-functions used by</p>
+          <p>The cascade activation functions is an array of the different activation functions used by</p>
 
 <pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">candidates</span>.  <span class="ruby-constant">The</span> <span class="ruby-identifier">default</span> <span class="ruby-identifier">is</span> [<span class="ruby-value">:sigmoid</span>, <span class="ruby-value">:sigmoid_symmetric</span>, <span class="ruby-value">:gaussian</span>, <span class="ruby-value">:gaussian_symmetric</span>, <span class="ruby-value">:elliot</span>, <span class="ruby-value">:elliot_symmetric</span>]
 </pre>
@@ -2844,8 +2801,7 @@ functions used by</p>
 
         <div class="method-description">
           
-          <p>The cascade activation steepnesses array is an array of the different
-activation functions used by</p>
+          <p>The cascade activation steepnesses array is an array of the different activation functions used by</p>
 
 <pre>the candidates.</pre>
           
@@ -2932,8 +2888,7 @@ activation functions used by</p>
 
         <div class="method-description">
           
-          <p>The candidate limit is a limit for how much the candidate neuron may be
-trained.</p>
+          <p>The candidate limit is a limit for how much the candidate neuron may be trained.</p>
 
 <pre>The limit is a limit on the proportion between the MSE and candidate score.</pre>
           
@@ -2971,8 +2926,7 @@ trained.</p>
 
         <div class="method-description">
           
-          <p>The number of cascade candidate stagnation epochs determines the number of
-epochs training is allowed to</p>
+          <p>The number of cascade candidate stagnation epochs determines the number of epochs training is allowed to</p>
 
 <pre>continue without changing the MSE by a fraction of &lt;get_cascade_candidate_change_fraction&gt;.</pre>
           
@@ -3010,8 +2964,7 @@ epochs training is allowed to</p>
 
         <div class="method-description">
           
-          <p>The maximum candidate epochs determines the maximum number of epochs the
-input</p>
+          <p>The maximum candidate epochs determines the maximum number of epochs the input </p>
 
 <pre>connections to the candidates may be trained before adding a new candidate neuron.</pre>
           
@@ -3049,8 +3002,7 @@ input</p>
 
         <div class="method-description">
           
-          <p>The maximum out epochs determines the maximum number of epochs the output
-connections</p>
+          <p>The maximum out epochs determines the maximum number of epochs the output connections</p>
 
 <pre>may be trained after adding a new candidate neuron.</pre>
           
@@ -3088,8 +3040,7 @@ connections</p>
 
         <div class="method-description">
           
-          <p>The number of candidate groups is the number of groups of identical
-candidates which will be used</p>
+          <p>The number of candidate groups is the number of groups of identical candidates which will be used</p>
 
 <pre>during training.</pre>
           
@@ -3164,8 +3115,7 @@ candidates which will be used</p>
 
         <div class="method-description">
           
-          <p>The number of cascade output stagnation epochs determines the number of
-epochs training is allowed to</p>
+          <p>The number of cascade output stagnation epochs determines the number of epochs training is allowed to </p>
 
 <pre>continue without changing the MSE by a fraction of &lt;get_cascade_output_change_fraction&gt;.</pre>
           
@@ -3203,8 +3153,7 @@ epochs training is allowed to</p>
 
         <div class="method-description">
           
-          <p>The weight multiplier is a parameter which is used to multiply the weights
-from the candidate neuron</p>
+          <p>The weight multiplier is a parameter which is used to multiply the weights from the candidate neuron</p>
 
 <pre>before adding the neuron to the neural network. This parameter is usually between 0 and 1, and is used
 to make the training a bit less aggressive.</pre>
@@ -3279,8 +3228,7 @@ to make the training a bit less aggressive.</pre>
 
         <div class="method-description">
           
-          <p>The learning rate is used to determine how aggressive training should be
-for some of the</p>
+          <p>The learning rate is used to determine how aggressive training should be for some of the</p>
 
 <pre>training algorithms (:incremental, :batch, :quickprop).
 Do however note that it is not used in :rprop. 
@@ -3392,8 +3340,7 @@ The default learning rate is 0.7.</pre>
 
         <div class="method-description">
           
-          <p>The decrease factor is a value smaller than 1, which is used to decrease
-the step-size during RPROP training.</p>
+          <p>The decrease factor is a value smaller than 1, which is used to decrease the step-size during RPROP training.</p>
           
           
 
@@ -3429,8 +3376,7 @@ the step-size during RPROP training.</p>
 
         <div class="method-description">
           
-          <p>The maximum step-size is a positive number determining how large the
-maximum step-size may be.</p>
+          <p>The maximum step-size is a positive number determining how large the maximum step-size may be.</p>
           
           
 
@@ -3466,8 +3412,7 @@ maximum step-size may be.</p>
 
         <div class="method-description">
           
-          <p>The minimum step-size is a small positive number determining how small the
-minimum step-size may be.</p>
+          <p>The minimum step-size is a small positive number determining how small the minimum step-size may be.</p>
           
           
 
@@ -3503,8 +3448,7 @@ minimum step-size may be.</p>
 
         <div class="method-description">
           
-          <p>The initial step-size is a positive number determining the initial step
-size.</p>
+          <p>The initial step-size is a positive number determining the initial step size.</p>
           
           
 
@@ -3576,8 +3520,7 @@ size.</p>
 
         <div class="method-description">
           
-          <p>Sets the error function used during training.  One of the following
-symbols:</p>
+          <p>Sets the error function used during training.  One of the following symbols:</p>
 
 <pre>:linear, :tanh</pre>
           
@@ -3845,8 +3788,7 @@ expected_output - The outputs expected.</pre>
 
         <div class="method-description">
           
-          <p>Train one epoch with a set of training data, created with <a
-href="TrainData.html#method-c-new">RubyFann::TrainData.new</a></p>
+          <p>Train one epoch with a set of training data, created with <a href="TrainData.html#method-c-new"><code>RubyFann::TrainData.new</code></a></p>
           
           
 
@@ -3887,8 +3829,7 @@ href="TrainData.html#method-c-new">RubyFann::TrainData.new</a></p>
 
         <div class="method-description">
           
-          <p>Train with training data created with <a
-href="TrainData.html#method-c-new">RubyFann::TrainData.new</a></p>
+          <p>Train with training data created with <a href="TrainData.html#method-c-new"><code>RubyFann::TrainData.new</code></a></p>
 
 <pre>max_epochs - The maximum number of epochs the training should continue
 epochs_between_reports - The number of epochs between printing a status report to stdout.
@@ -3930,12 +3871,13 @@ desired_error - The desired &lt;get_MSE&gt; or &lt;get_bit_fail&gt;, depending o
     </section>
   
   </section>
+
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.4.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

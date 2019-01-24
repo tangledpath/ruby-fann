@@ -26,17 +26,17 @@ Or install it yourself as:
 First, Go here & read about FANN. You don't need to install it before using the gem, but understanding FANN will help you understand what you can do with the ruby-fann gem:
 http://leenissen.dk/fann/
 
-ruby-fann RDocs:
-http://ruby-fann.rubyforge.org/
+*ruby-fann documentation*:
+http://tangledpath.github.io/ruby-fann/index.html
 
 ### Example training & subsequent execution:
-  
+
 ```ruby
   require 'ruby-fann'
   train = RubyFann::TrainData.new(:inputs=>[[0.3, 0.4, 0.5], [0.1, 0.2, 0.3]], :desired_outputs=>[[0.7], [0.8]])
   fann = RubyFann::Standard.new(:num_inputs=>3, :hidden_neurons=>[2, 8, 4, 3, 4], :num_outputs=>1)
   fann.train_on_data(train, 1000, 10, 0.1) # 1000 max_epochs, 10 errors between reports and 0.1 desired MSE (mean-squared-error)
-  outputs = fann.run([0.3, 0.2, 0.4])    
+  outputs = fann.run([0.3, 0.2, 0.4])
 ```
 
 ### Save training data to file and use it later (continued from above)
@@ -46,7 +46,7 @@ http://ruby-fann.rubyforge.org/
   train = RubyFann::TrainData.new(:filename=>'verify.train')
   # Train again with 10000 max_epochs, 20 errors between reports and 0.01 desired MSE (mean-squared-error)
   # This will take longer:
-  fann.train_on_data(train, 10000, 20, 0.01) 
+  fann.train_on_data(train, 10000, 20, 0.01)
 ```
 
 ### Save trained network to file and use it later (continued from above)
@@ -54,9 +54,9 @@ http://ruby-fann.rubyforge.org/
 ```ruby
   fann.save('foo.net')
   saved_nn = RubyFann::Standard.new(:filename=>"foo.net")
-  saved_nn.run([0.3, 0.2, 0.4])  
+  saved_nn.run([0.3, 0.2, 0.4])
 ```
-  
+
 ### Custom training using a callback method
 
 This callback function can be called during training when using train_on_data, train_on_file or cascadetrain_on_data.
@@ -71,7 +71,7 @@ The callback (training_callback) will be automatically called if it is implement
 class MyFann < RubyFann::Standard
   def training_callback(args)
     puts "ARGS: #{args.inspect}"
-    0  
+    0
   end
 end
 ```
