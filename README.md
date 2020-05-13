@@ -1,5 +1,5 @@
 # RubyFann
-*Artifical Intelligence in Ruby*
+*_Fast_ AI/Neural Networks in Ruby*
 
 [![Gem Version](https://badge.fury.io/rb/ruby-fann.png)](http://badge.fury.io/rb/ruby-fann)
 
