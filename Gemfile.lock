@@ -6,7 +6,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    json (2.1.0)
+    json (2.3.1)
     rdoc (6.0.4)
 
 PLATFORMS
