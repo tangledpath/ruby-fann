@@ -1,5 +1,9 @@
 # RubyFann
 _Fast_ **AI**
+
+
+![NN eye candy](nn1.png)
+
 ---
 Neural Networks in `ruby`
 
