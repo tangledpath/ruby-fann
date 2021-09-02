@@ -7,7 +7,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     json (2.3.1)
-    rdoc (6.2.1)
+    rdoc (6.3.2)
 
 PLATFORMS
   ruby
