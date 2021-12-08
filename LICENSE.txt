@@ -1,4 +1,4 @@
-Copyright (c) 2013 Steven Miers
+Copyright (c) 2013-2022 Steven Miers
 
 MIT License
 
