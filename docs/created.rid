@@ -1,14 +1,14 @@
-Thu, 24 Jan 2019 12:54:46 -0600
-README.md	Thu, 24 Jan 2019 12:35:33 -0600
-lib/ruby-fann.rb	Thu, 24 Jan 2019 11:30:13 -0600
-lib/ruby_fann.rb	Thu, 24 Jan 2019 11:30:13 -0600
-lib/ruby_fann/neurotica.rb	Thu, 24 Jan 2019 11:30:13 -0600
-lib/ruby_fann/version.rb	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/doublefann.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann_cascade.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann_error.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann_io.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann_train.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/fann_train_data.c	Thu, 24 Jan 2019 11:30:13 -0600
-ext/ruby_fann/ruby_fann.c	Thu, 24 Jan 2019 11:30:13 -0600
+Tue, 07 Dec 2021 23:15:07 -0600
+README.md	Tue, 07 Dec 2021 23:06:28 -0600
+lib/ruby-fann.rb	Tue, 07 Dec 2021 23:06:28 -0600
+lib/ruby_fann.rb	Tue, 07 Dec 2021 23:06:28 -0600
+lib/ruby_fann/neurotica.rb	Tue, 07 Dec 2021 23:06:28 -0600
+lib/ruby_fann/version.rb	Tue, 07 Dec 2021 23:11:20 -0600
+ext/ruby_fann/doublefann.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann_cascade.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann_error.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann_io.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann_train.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/fann_train_data.c	Tue, 07 Dec 2021 23:06:28 -0600
+ext/ruby_fann/ruby_fann.c	Tue, 07 Dec 2021 23:06:28 -0600
