@@ -9,4 +9,4 @@ require 'mkmf'
 #dir_config('fann', '.')
 $objs=["ruby_fann.o", "doublefann.o"]
 have_header("doublefann.h")
-create_makefile("ruby_fann")
+create_makefile("ruby_fann/ruby_fann")
