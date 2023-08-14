@@ -1,14 +1,14 @@
-Tue, 07 Dec 2021 23:15:07 -0600
-README.md	Tue, 07 Dec 2021 23:06:28 -0600
-lib/ruby-fann.rb	Tue, 07 Dec 2021 23:06:28 -0600
-lib/ruby_fann.rb	Tue, 07 Dec 2021 23:06:28 -0600
-lib/ruby_fann/neurotica.rb	Tue, 07 Dec 2021 23:06:28 -0600
-lib/ruby_fann/version.rb	Tue, 07 Dec 2021 23:11:20 -0600
-ext/ruby_fann/doublefann.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann_cascade.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann_error.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann_io.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann_train.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/fann_train_data.c	Tue, 07 Dec 2021 23:06:28 -0600
-ext/ruby_fann/ruby_fann.c	Tue, 07 Dec 2021 23:06:28 -0600
+Mon, 14 Aug 2023 17:15:28 -0500
+README.md	Mon, 14 Aug 2023 17:00:11 -0500
+lib/ruby-fann.rb	Mon, 14 Aug 2023 16:08:17 -0500
+lib/ruby_fann.rb	Mon, 14 Aug 2023 16:08:17 -0500
+lib/ruby_fann/neurotica.rb	Mon, 14 Aug 2023 16:08:17 -0500
+lib/ruby_fann/version.rb	Mon, 14 Aug 2023 16:11:39 -0500
+ext/ruby_fann/doublefann.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann_cascade.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann_error.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann_io.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann_train.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/fann_train_data.c	Mon, 14 Aug 2023 16:08:17 -0500
+ext/ruby_fann/ruby_fann.c	Mon, 14 Aug 2023 16:08:17 -0500

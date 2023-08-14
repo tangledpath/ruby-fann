@@ -4,7 +4,7 @@
 FANN_EXTERNAL struct fann_train_data * FANN_API fann_create_train_from_rb_ary2(
 	unsigned int num_data,
 	unsigned int num_input,
-  unsigned int num_output)
+  unsigned long num_output)
 {
 	return 0;
 }
@@ -18,7 +18,7 @@ FANN_EXTERNAL struct fann_train_data * FANN_API fann_create_train_from_rb_ary(
 	VALUE outputs 
 )
 {
-    unsigned int i, j;
+    unsigned long i, j;
     fann_type *data_input, *data_output;
     struct fann_train_data *data = (struct fann_train_data *)malloc(sizeof(struct fann_train_data));
     unsigned int num_input = RARRAY_LEN(RARRAY_PTR(inputs)[0]);

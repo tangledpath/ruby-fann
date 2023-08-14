@@ -93,6 +93,7 @@ https://github.com/bigohstudios/tictactoe
 3. dignati
 4. Michal Pokorny
 5. Scott Li (locksley)
+6. alex.slotty
 
 ## Contributing
 
