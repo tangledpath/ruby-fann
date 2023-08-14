@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ruby-fann (1.3.2)
+    ruby-fann (1.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -10,6 +10,7 @@ GEM
     rdoc (6.3.3)
 
 PLATFORMS
+  arm64-darwin-22
   x86_64-darwin-19
 
 DEPENDENCIES
@@ -18,4 +19,4 @@ DEPENDENCIES
   ruby-fann!
 
 BUNDLED WITH
-   2.2.9
+   2.4.18
