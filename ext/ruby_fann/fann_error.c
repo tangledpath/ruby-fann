@@ -22,6 +22,7 @@
 #include <stdarg.h>
 #include <string.h>
 
+#include "ruby.h"
 #include "config.h"
 #include "fann.h"
 
@@ -90,7 +91,7 @@ FANN_EXTERNAL void FANN_API fann_print_error(struct fann_error *errdat)
 /* INTERNAL FUNCTION
    Populate the error information
  */
-void fann_error(struct fann_error *errdat, const enum fann_errno_enum errno_f, ...)
+void fann_error(struct fann_error *errdat, enum fann_errno_enum errno_f, ...)
 {
 	va_list ap;
 	char *errstr;
@@ -191,12 +192,13 @@ void fann_error(struct fann_error *errdat, const enum fann_errno_enum errno_f, .
 
 	if(error_log == (FILE *)-1) /* This is the default behavior and will give stderr */
 	{
-		fprintf(stderr, "FANN Error %d: %s", errno_f, errstr);
+		fprintf(stderr, "FANN Error %d: %s, ", errno_f, errstr);
 	}
 	else if(error_log != NULL)
 	{
-		fprintf(error_log, "FANN Error %d: %s", errno_f, errstr);
+		fprintf(error_log, "FANN Error %d: %s, ", errno_f, errstr);
 	}
+	rb_raise (rb_eRuntimeError, errstr);
 }
 
 /* INTERNAL FUNCTION

@@ -21,8 +21,6 @@
 <link href="../css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,30 +57,25 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link">Object
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-new">::new</a>
-    
     <li ><a href="#method-i-length">#length</a>
-    
     <li ><a href="#method-i-save">#save</a>
-    
     <li ><a href="#method-i-shuffle">#shuffle</a>
-    
   </ul>
 </div>
 
@@ -98,39 +91,28 @@
     
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-new" class="method-detail ">
-        
-        
-        <div class="method-heading">
-          <span class="method-callseq">
-            new(hash) &rarr; new ruby-fann training data object (RubyFann::TrainData)
-          </span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              new(hash) &rarr; new ruby-fann training data object (RubyFann::TrainData)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
-        
-        
 
         <div class="method-description">
-          
           <pre>Initialize in one of the following forms:
 
 # This is a flat file with training data as described in FANN docs.
@@ -145,10 +127,7 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
 <span class="ruby-comment"># Sub-arrays on inputs &amp; desired_outputs can be different sizes from one another</span>
 <span class="ruby-constant">RubyFann</span><span class="ruby-operator">::</span><span class="ruby-constant">TrainData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:inputs</span><span class="ruby-operator">=&gt;</span>[[<span class="ruby-value">0.2</span>, <span class="ruby-value">0.3</span>, <span class="ruby-value">0.4</span>], [<span class="ruby-value">0.8</span>, <span class="ruby-value">0.9</span>, <span class="ruby-value">0.7</span>]], <span class="ruby-value">:desired_outputs</span><span class="ruby-operator">=&gt;</span>[[<span class="ruby-value">3.14</span>], [<span class="ruby-value">6.33</span>]])
 </pre>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre>static VALUE fann_train_data_initialize(VALUE self, VALUE hash)
 {
@@ -197,41 +176,30 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
     return (VALUE)train_data;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-length" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">length</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">length</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
-        
 
         <div class="method-description">
-          
           <p>Length of training data</p>
-          
-          
 
-          
           <div class="method-source-code" id="length-source">
             <pre>static VALUE length_train_data(VALUE self)
 {
@@ -241,36 +209,24 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
     return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-save" class="method-detail ">
-        
-        
-        <div class="method-heading">
-          <span class="method-callseq">
-            save(filename)
-          </span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-callseq">
+              save(filename)
+            </span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
-        
-        
 
         <div class="method-description">
-          
           <p>Save to given filename</p>
-          
-          
 
-          
           <div class="method-source-code" id="save-source">
             <pre>static VALUE training_save(VALUE self, VALUE filename)
 {
@@ -281,33 +237,23 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
     return self;    
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-shuffle" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">shuffle</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">shuffle</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
         </div>
-        
 
         <div class="method-description">
-          
           <p>Shuffles training data, randomizing the order.  This is recommended for incremental training, while it will have no influence during batch training.</p>
-          
-          
 
-          
           <div class="method-source-code" id="shuffle-source">
             <pre>static VALUE shuffle(VALUE self)
 {
@@ -317,25 +263,20 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
     return self;
 }</pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.1.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

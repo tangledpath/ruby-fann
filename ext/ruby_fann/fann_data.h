@@ -413,8 +413,8 @@ struct fann_neuron
 	/* Index to the first and last connection
 	 * (actually the last is a past end index)
 	 */
-	unsigned int first_con;
-	unsigned int last_con;
+	long first_con;
+	long last_con;
 	/* The sum of the inputs multiplied with the weights */
 	fann_type sum;
 	/* The value of the activation function applied to the sum */

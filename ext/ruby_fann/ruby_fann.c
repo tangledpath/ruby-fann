@@ -278,7 +278,7 @@ static VALUE fann_initialize(VALUE self, VALUE hash)
         Check_Type(num_outputs, T_FIXNUM);
         
         // Initialize layers:
-        unsigned int num_layers=RARRAY_LEN(hidden_neurons) + 2; 
+        unsigned int num_layers=NUM2UINT(RARRAY_LEN(hidden_neurons)) + 2; 
         unsigned int layers[num_layers];
 
         // Input:
@@ -286,7 +286,7 @@ static VALUE fann_initialize(VALUE self, VALUE hash)
         // Output:
         layers[num_layers-1]=NUM2INT(num_outputs);  
         // Hidden:
-        int i;
+        unsigned int i;
         for (i=1; i<=num_layers-2; i++) {
             layers[i]=NUM2UINT(RARRAY_PTR(hidden_neurons)[i-1]);
         }
@@ -691,7 +691,7 @@ static VALUE get_bias_array(VALUE self)
     // Create ruby array & set outputs:
     VALUE arr;
     arr = rb_ary_new();
-    int i;
+    unsigned int i;
     for (i=0; i<num_layers; i++)
     {
         rb_ary_push(arr, INT2NUM(layers[i]));
@@ -803,7 +803,7 @@ static VALUE get_layer_array(VALUE self)
     // Create ruby array & set outputs:
     VALUE arr;
     arr = rb_ary_new();
-    int i;
+    unsigned int i;
     for (i=0; i<num_layers; i++)
     {
         rb_ary_push(arr, INT2NUM(layers[i]));
@@ -1017,7 +1017,7 @@ static VALUE get_train_stop_function(VALUE self)
     {
         ret_val = ID2SYM(rb_intern("mse")); // (rb_str_new2("FANN_NETTYPE_LAYER"));
     }
-    else if(train_stop==FANN_STOPFUNC_BIT)
+    else // if(train_stop==FANN_STOPFUNC_BIT)
     {
         ret_val = ID2SYM(rb_intern("bit")); // (rb_str_new2("FANN_NETTYPE_SHORTCUT"));
     }   
@@ -1066,11 +1066,11 @@ static VALUE run (VALUE self, VALUE inputs)
     Check_Type(inputs, T_ARRAY);
 
   struct fann* f;
-    int i;
+    unsigned int i;
     fann_type* outputs;
         
     // Convert inputs to type needed for NN:
-    unsigned int len = RARRAY_LEN(inputs);
+    unsigned int len = NUM2UINT(RARRAY_LEN(inputs));
     fann_type fann_inputs[len];
     for (i=0; i<len; i++)
     {
@@ -1124,12 +1124,12 @@ static VALUE train(VALUE self, VALUE input, VALUE expected_output)
     struct fann* f;
     Data_Get_Struct(self, struct fann, f);
 
-    unsigned int num_input = RARRAY_LEN(input);
-    unsigned int num_output = RARRAY_LEN(expected_output);
+    unsigned int num_input = NUM2UINT(RARRAY_LEN(input));
+    unsigned int num_output = NUM2UINT(RARRAY_LEN(expected_output));
 
     fann_type data_input[num_input], data_output[num_output];
 
-    int i;
+    unsigned int i;
 
     for (i = 0; i < num_input; i++) {
         data_input[i] = NUM2DBL(RARRAY_PTR(input)[i]);
@@ -1425,9 +1425,9 @@ static VALUE set_cascade_activation_functions(VALUE self, VALUE cascade_activati
     struct fann* f;
     Data_Get_Struct (self, struct fann, f); 
     
-    unsigned int cnt = RARRAY_LEN(cascade_activation_functions);
+    unsigned int cnt = NUM2UINT(RARRAY_LEN(cascade_activation_functions));
     enum fann_activationfunc_enum fann_activation_functions[cnt];
-    int i;
+    unsigned int i;
     for (i=0; i<cnt; i++)
     {
         fann_activation_functions[i] = sym_to_activation_function(RARRAY_PTR(cascade_activation_functions)[i]);
@@ -1449,7 +1449,7 @@ static VALUE get_cascade_activation_functions(VALUE self)
     // Create ruby array & set outputs:
     VALUE arr;
     arr = rb_ary_new();
-    int i;
+    unsigned int i;
     for (i=0; i<cnt; i++)
     {
         rb_ary_push(arr, activation_function_to_sym(fann_functions[i]));
@@ -1489,9 +1489,9 @@ static VALUE set_cascade_activation_steepnesses(VALUE self, VALUE cascade_activa
     struct fann* f;
     Data_Get_Struct (self, struct fann, f); 
     
-    unsigned int cnt = RARRAY_LEN(cascade_activation_steepnesses);
+    unsigned int cnt = NUM2UINT(RARRAY_LEN(cascade_activation_steepnesses));
     fann_type fann_activation_steepnesses[cnt];
-    int i;
+    unsigned int i;
     for (i=0; i<cnt; i++)
     {
         fann_activation_steepnesses[i] = NUM2DBL(RARRAY_PTR(cascade_activation_steepnesses)[i]);
@@ -1513,7 +1513,7 @@ static VALUE get_cascade_activation_steepnesses(VALUE self)
     // Create ruby array & set outputs:
     VALUE arr;
     arr = rb_ary_new();
-    int i;
+    unsigned int i;
     for (i=0; i<cnt; i++)
     {
         rb_ary_push(arr, rb_float_new(fann_steepnesses[i]));

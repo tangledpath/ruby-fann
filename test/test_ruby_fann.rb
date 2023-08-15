@@ -1,4 +1,7 @@
 require 'test/unit'
+require 'rubygems'
+require 'ruby-fann'
+
 class MyShortcut < RubyFann::Shortcut
   def initialize
     super(:num_inputs=>5, :num_outputs=>1)    
@@ -43,6 +46,7 @@ class RubyFannTest < Test::Unit::TestCase
     assert_equal(:shortcut, fann.get_network_type)
         
     sc = MyShortcut.new
+    assert_not_nil(sc)
   end
 
   def test_raises
@@ -87,7 +91,10 @@ class RubyFannTest < Test::Unit::TestCase
     training = RubyFann::TrainData.new(:filename=>'test/test.train')    
     fann.init_weights(training)
   end
-  
+
+  def test_init_weights_bad_file
+    assert_raises(RuntimeError) { RubyFann::TrainData.new(:filename=>'test/bogus.train') }                        
+  end
   
   def test_print_connections
     fann = RubyFann::Standard.new(:num_inputs=>4, :hidden_neurons=>[3, 4, 3, 4], :num_outputs=>1)
