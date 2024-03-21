@@ -1,9 +1,9 @@
-Mon, 14 Aug 2023 20:42:26 -0500
-README.md	Mon, 14 Aug 2023 17:00:11 -0500
+Wed, 20 Mar 2024 21:41:38 -0500
+README.md	Wed, 20 Mar 2024 21:13:38 -0500
 lib/ruby-fann.rb	Mon, 14 Aug 2023 16:08:17 -0500
 lib/ruby_fann.rb	Mon, 14 Aug 2023 16:08:17 -0500
 lib/ruby_fann/neurotica.rb	Mon, 14 Aug 2023 16:08:17 -0500
-lib/ruby_fann/version.rb	Mon, 14 Aug 2023 19:49:35 -0500
+lib/ruby_fann/version.rb	Wed, 20 Mar 2024 21:27:32 -0500
 ext/ruby_fann/doublefann.c	Mon, 14 Aug 2023 16:08:17 -0500
 ext/ruby_fann/fann.c	Mon, 14 Aug 2023 16:08:17 -0500
 ext/ruby_fann/fann_cascade.c	Mon, 14 Aug 2023 16:08:17 -0500
