@@ -27,7 +27,7 @@ class RubyFannFunctionalTest < Test::Unit::TestCase
   	puts("Training network.\n")
 
 
-  	nn.train_on_data(training, 10000, 1000, 0.0)
+  	nn.train_on_data(training, 10000, 1000, 0.01)
   	printf("Saving network.\n")
   	nn.save("xor_float.net")
   	training.save("xor.train")
