@@ -1,6 +1,5 @@
 #!/bin/bash
 clear
-npm i
 echo "Removing docker image..."
 docker image rm -f tps:ruby-fann
 echo "Building docker image..."
