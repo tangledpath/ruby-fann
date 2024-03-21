@@ -133,17 +133,17 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
 {
     struct fann_train_data* train_data;
     Check_Type(hash, T_HASH);
-  
+
     VALUE filename = rb_hash_aref(hash, ID2SYM(rb_intern(&quot;filename&quot;)));
     VALUE inputs = rb_hash_aref(hash, ID2SYM(rb_intern(&quot;inputs&quot;)));
     VALUE desired_outputs = rb_hash_aref(hash, ID2SYM(rb_intern(&quot;desired_outputs&quot;)));
 
-    if (TYPE(filename)==T_STRING) 
+    if (TYPE(filename)==T_STRING)
     {
         train_data = fann_read_train_from_file(StringValuePtr(filename));
         DATA_PTR(self) = train_data;
-    } 
-    else if (TYPE(inputs)==T_ARRAY) 
+    }
+    else if (TYPE(inputs)==T_ARRAY)
     {
         if (TYPE(desired_outputs)!=T_ARRAY)
         {
@@ -152,27 +152,32 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
 
         if (RARRAY_LEN(inputs) &lt; 1)
         {
-            rb_raise (rb_eRuntimeError, &quot;[inputs/desired_outputs] must contain at least one value.&quot;);
+            rb_raise (rb_eRuntimeError, &quot;[inputs] must contain at least one value.&quot;);
+        }
+
+        if (RARRAY_LEN(desired_outputs) &lt; 1)
+        {
+            rb_raise (rb_eRuntimeError, &quot;[desired_outputs] must contain at least one value.&quot;);
         }
 
         // The data is here, start constructing:
-        if(RARRAY_LEN(inputs) != RARRAY_LEN(desired_outputs)) 
+        if(RARRAY_LEN(inputs) != RARRAY_LEN(desired_outputs))
         {
             rb_raise (
-                rb_eRuntimeError, 
-                &quot;Number of inputs must match number of outputs: (%d != %d)&quot;, 
-                (int)RARRAY_LEN(inputs), 
+                rb_eRuntimeError,
+                &quot;Number of inputs must match number of outputs: (%d != %d)&quot;,
+                (int)RARRAY_LEN(inputs),
                 (int)RARRAY_LEN(desired_outputs));
         }
 
-        train_data = fann_create_train_from_rb_ary(inputs, desired_outputs);        
-        DATA_PTR(self) = train_data;                
-    } 
-    else 
+        train_data = fann_create_train_from_rb_ary(inputs, desired_outputs);
+        DATA_PTR(self) = train_data;
+    }
+    else
     {
         rb_raise (rb_eRuntimeError, &quot;Must construct with a filename(string) or inputs/desired_outputs(arrays).  All args passed via hash with symbols as keys.&quot;);
     }
-    
+
     return (VALUE)train_data;
 }</pre>
           </div>
@@ -203,8 +208,8 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
           <div class="method-source-code" id="length-source">
             <pre>static VALUE length_train_data(VALUE self)
 {
-    struct fann_train_data* t; 
-    Data_Get_Struct (self, struct fann_train_data, t);  
+    struct fann_train_data* t;
+    Data_Get_Struct (self, struct fann_train_data, t);
     return(UINT2NUM(fann_length_train_data(t)));
     return self;
 }</pre>
@@ -230,11 +235,11 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
           <div class="method-source-code" id="save-source">
             <pre>static VALUE training_save(VALUE self, VALUE filename)
 {
-    Check_Type(filename, T_STRING); 
+    Check_Type(filename, T_STRING);
     struct fann_train_data* t;
-    Data_Get_Struct (self, struct fann_train_data, t);  
+    Data_Get_Struct (self, struct fann_train_data, t);
     fann_save_train(t, StringValuePtr(filename));
-    return self;    
+    return self;
 }</pre>
           </div>
         </div>
@@ -252,13 +257,13 @@ RubyFann::TrainData.new(:filename =&gt; &#39;path/to/training_file.train&#39;)</
         </div>
 
         <div class="method-description">
-          <p>Shuffles training data, randomizing the order.  This is recommended for incremental training, while it will have no influence during batch training.</p>
+          <p>Shuffles training data, randomizing the order. This is recommended for incremental training, while it will have no influence during batch training.</p>
 
           <div class="method-source-code" id="shuffle-source">
             <pre>static VALUE shuffle(VALUE self)
 {
-    struct fann_train_data* t; 
-    Data_Get_Struct (self, struct fann_train_data, t);  
+    struct fann_train_data* t;
+    Data_Get_Struct (self, struct fann_train_data, t);
     fann_shuffle_train_data(t);
     return self;
 }</pre>
