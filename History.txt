@@ -1,5 +1,7 @@
+== 2.0.x
+Get working again after a bad pull request.
 == 1.3.x
-Dependabot updates, etc.  
+Dependabot updates, etc.
 == 1.2.7
 * Update to more recent json and rdoc files
 == 1.2.6

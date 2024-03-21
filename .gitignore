@@ -3,7 +3,8 @@
 *.bundle
 *.net
 *.log
-.DS_Store
+**/*/.DS_Store
+.vscode
 .config
 coverage
 InstalledFiles
